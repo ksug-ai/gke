@@ -12,7 +12,7 @@ This script based automation allows you to build a ready-to-use GKE cluster with
 1. Go to open Google Cloud Shell
 2. Clone the github repo to your local host, run below command
 ````
-git clone https://github.com/yongkanghe/gke-casa.git;cd gke-casa
+git clone https://github.com/ksug-ai/gke.git;cd gke
 ````
 3. Enable GKE API if not enabled
 ````
@@ -91,8 +91,10 @@ Uninstall Falco via Automation
 https://cloudcasa.io 
 
 # Contributors
-#### Follow [Yongkang He](http://yongkang.cloud) on LinkedIn
-#### Join [Kubernetes Data Management](https://www.linkedin.com/groups/13983251) LinkedIn Group
-#### Join [Kubernetes Data Management](http://t.k8sug.com) Telegram Group
-#### Join [Kubernetes Meetup](http://k8sug.com) User Group
+#### Follow [Yongkang He](https://linktr.ee/ksug.ai) on LinkedIn
+#### Join [KSUG.AI Discord](https://discord.com/invite/Rp9WzYyKua)
+#### Join [KSUG.AI Discussions](https://www.linkedin.com/groups/13983251) LinkedIn Group
+#### Join [KSUG.AI Telegram Chat](https://t.me/+QsBjgoId34EzN2I1)
+#### Join [KSUG.AI Meetup](meetup.com/pro/yongkang) User Group
+
 
