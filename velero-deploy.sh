@@ -4,11 +4,11 @@ starttime=$(date +%s)
 
 echo "-------Download and Install verlero CLI if needed"
 if [ ! -f ~/gke-casa/velero ]; then
-  wget https://github.com/vmware-tanzu/velero/releases/download/v1.12.0/velero-v1.12.0-linux-amd64.tar.gz
-  tar -zxvf velero-v1.12.0-linux-amd64.tar.gz
-  sudo mv velero-v1.12.0-linux-amd64/velero ~/gke-casa
-  sudo rm velero-v1.12.0-linux-amd64.tar.gz
-  sudo rm -rf velero-v1.12.0-linux-amd64
+  wget https://github.com/vmware-tanzu/velero/releases/download/v1.16.2/velero-v1.16.2-linux-amd64.tar.gz
+  tar -zxvf velero-v1.16.2-linux-amd64.tar.gz
+  sudo mv velero-v1.16.2-linux-amd64/velero ~/gke-casa
+  sudo rm velero-v1.16.2-linux-amd64.tar.gz
+  sudo rm -rf velero-v1.16.2-linux-amd64
 fi
 
 echo "-------Create a GCS storage bucket if not exist"
@@ -68,7 +68,7 @@ fi
 echo "-------Install velero using the SA"
 velero install \
     --provider gcp \
-    --plugins velero/velero-plugin-for-gcp:v1.6.0 \
+    --plugins velero/velero-plugin-for-gcp:v1.12.2 \
     --bucket $(cat bucket4velero1) \
     --use-node-agent \
     --uploader-type restic \
