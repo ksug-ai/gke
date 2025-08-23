@@ -75,10 +75,6 @@ Uninstall Falco via Automation
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9E4I1BaygUM/0.jpg)](https://www.youtube.com/watch?v=9E4I1BaygUM)
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
 
-# 3 mins to enable Containers Backup via CloudCasa
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/hz8Ut7PaS0Y/0.jpg)](https://www.youtube.com/watch?v=hz8Ut7PaS0Y)
-#### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
-
 # 30 mins to enable Backup for GKE
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/H0UNvG_CJwk/0.jpg)](https://www.youtube.com/watch?v=H0UNvG_CJwk)
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
@@ -86,9 +82,6 @@ Uninstall Falco via Automation
 # Build a GKE cluster via Web UI
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YwfPqR5phLM/0.jpg)](https://www.youtube.com/watch?v=YwfPqR5phLM)
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
-
-# CloudCasa - Best Kubernetes Backup as a Service
-https://cloudcasa.io 
 
 # Contributors
 #### Follow [Yongkang He](https://linktr.ee/ksug.ai) on LinkedIn
