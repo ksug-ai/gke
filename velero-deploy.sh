@@ -71,7 +71,6 @@ velero install \
     --plugins velero/velero-plugin-for-gcp:v1.12.2 \
     --bucket $(cat bucket4velero1) \
     --use-node-agent \
-    --uploader-type restic \
     --secret-file ./yongsa4velero1
 
 # --features=EnableCSI \
