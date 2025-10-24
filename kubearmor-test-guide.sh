@@ -52,6 +52,9 @@ kubectl exec -it $POD -n yong-nginx -- bash -c "head /etc/nginx/nginx.conf"
 # Verify policy violations
 karmor logs -n yong-nginx
 
+# Or this command
+kubectl logs -n yong-kubearmor -l kubearmor-app=kubearmor-relay --tail=100 -f
+
 # KubeArmor Test Case -4, allow only nginx to exec, deny the rest
 # Least permissive policies require one to allow certain actions/operations and deny rest. With KubeArmor it is possible to specify as part of the policy as to what actions should be allowed and deny/audit the rest.
 # Security Posture defines what happens to the operations that are not in the allowed list. Should it be audited (allow but alert), or denied (block and alert)?
