@@ -6,7 +6,6 @@ helm repo update
 helm install postgres bitnami/postgresql \
   --namespace yong-postgresql \
   --create-namespace \
-  --set image.tag=16.3.0-debian-12-r22 \
   --set primary.persistence.size=1Gi \
   --set primary.persistence.labels.created-by=gke-deploy-script \
   --wait --timeout 5m0s
