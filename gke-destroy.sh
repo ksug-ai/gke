@@ -1,32 +1,45 @@
+set -e
+
 starttime=$(date +%s)
 . ./setenv.sh
 echo '-------Deleting the GKE Cluster (typically in few mins)'
-TEMP_PREFIX=$(echo $(whoami) | sed -e 's/\_//g' | sed -e 's/\.//g' | awk '{print tolower($0)}')
-FIRST3=$(printf "%.3s" "$TEMP_PREFIX")
-LAST3=$(printf "%.3s" "$(echo -n "$TEMP_PREFIX" | tail -c3)")
-MY_PREFIX="$FIRST3$LAST3"
+TEMP_PREFIX=$(whoami | sed -e 's/[_.]//g' | tr '[:upper:]' '[:lower:]')
+FIRST2=$(printf "%.2s" "$TEMP_PREFIX")
+LAST2=$(echo -n "$TEMP_PREFIX" | tail -c2)
+MY_PREFIX="$FIRST2$LAST2"
 
-gkeclustername=$(gcloud container clusters list --format="value(name)" --filter="$MY_PREFIX-$MY_CLUSTER")
-gcloud container clusters delete $gkeclustername --zone $MY_ZONE --quiet
-findmydisk=$(echo $MY_PREFIX-$MY_CLUSTER | head -c 12)
+CLUSTER_FILTER="name~^$MY_PREFIX-$MY_CLUSTER"
+GKE_CLUSTERS=$(gcloud container clusters list --format="value(name)" --filter="$CLUSTER_FILTER")
 
-echo '-------Deleting disks'
-for i in $(gcloud compute disks list --format="value(name)" --filter="yong-postgresql");do echo $i;gcloud compute disks delete $i --zone=$MY_ZONE -q;done
+if [ -n "$GKE_CLUSTERS" ]; then
+    echo "Deleting GKE cluster(s): $GKE_CLUSTERS"
+    gcloud container clusters delete $GKE_CLUSTERS --zone "$MY_ZONE" --quiet
+else
+    echo "No clusters found with prefix $MY_PREFIX-$MY_CLUSTER to delete."
+fi
 
-echo '-------Deleting snapshots'
-for i in $(gcloud compute snapshots list --format="value(name)" --filter="GCE-PD CSI Driver");do echo $i;gcloud compute snapshots delete $i -q;done
+echo
+echo '-------Deleting PostgreSQL persistent disks'
+DISK_NAMES=$(gcloud compute disks list --format="value(name)" --filter="labels.created-by=gke-deploy-script")
+if [ -n "$DISK_NAMES" ]; then
+    echo "Deleting disks: $DISK_NAMES"
+    gcloud compute disks delete $DISK_NAMES --zone="$MY_ZONE" --quiet
+else
+    echo "No PostgreSQL disks found to delete."
+fi
 
+echo
 echo '-------Deleting the bucket'
-myproject=$(gcloud config get-value core/project)
-gsutil -m rm -r gs://$MY_PREFIX-$MY_BUCKET
+BUCKET_NAME="$MY_PREFIX-$MY_BUCKET"
+if gsutil ls "gs://$BUCKET_NAME" >/dev/null 2>&1; then
+    echo "Deleting bucket gs://$BUCKET_NAME"
+    gsutil -m rm -r "gs://$BUCKET_NAME"
+fi
 
-echo '-------Deleting kubeconfig for this cluster'
-kubectl config delete-context $(kubectl config get-contexts | grep $MY_PREFIX-$MY_CLUSTER | awk '{print $2}')
-
-echo "" | awk '{print $1}'
+echo
 endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))
 echo "-------Total time is $(($duration / 60)) minutes $(($duration % 60)) seconds."
-echo "" | awk '{print $1}'
+echo
 echo "-------Created by Yongkang"
 echo "-------Email me if any suggestions or issues he@yongkang.cloud"
