@@ -2,8 +2,10 @@ echo '-------Installing KubeArmor on GKE Cluster (typically in ~2 mins)'
 starttime=$(date +%s)
 
 # Add helm chart repo
-helm repo add kubearmor https://kubearmor.github.io/charts 
-helm repo update kubearmor
+helm repo add kubearmor https://kubearmor.github.io/charts 2>/dev/null || true
+if [ ! -f ~/.cache/helm/repository/kubearmor-index.yaml ] || [ $(find ~/.cache/helm/repository/kubearmor-index.yaml -mtime +7 2>/dev/null | wc -l) -gt 0 ]; then
+  helm repo update kubearmor
+fi
 
 # Install KubeArmor
 helm upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-kubearmor --create-namespace 
