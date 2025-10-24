@@ -4,9 +4,9 @@ echo '-------Creating a GKE Cluster only (typically in ~5 mins)'
 starttime=$(date +%s)
 . ./setenv.sh
 TEMP_PREFIX=$(whoami | sed -e 's/[_.]//g' | tr '[:upper:]' '[:lower:]')
-FIRST2=$(printf "%.2s" "$TEMP_PREFIX")
-LAST2=$(echo -n "$TEMP_PREFIX" | tail -c2)
-MY_PREFIX="$FIRST2$LAST2"
+FIRST3=$(echo -n "$TEMP_PREFIX" | head -c3)
+LAST3=$(echo -n "$TEMP_PREFIX" | tail -c3)
+MY_PREFIX="$FIRST3$LAST3"
 GKE_K8S_VERSION=$(gcloud container get-server-config --region "${MY_REGION}" --format='table(channels.validVersions[])' --filter='channels.channel=RAPID' | grep -o "${K8S_VERSION}-gke\.[0-9]*" | sort -rV | head -n 1)
 
 if [ -z "$GKE_K8S_VERSION" ]; then
