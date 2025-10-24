@@ -88,6 +88,6 @@ Uninstall Falco via Automation
 #### Join [KSUG.AI Discord](https://discord.com/invite/Rp9WzYyKua)
 #### Join [KSUG.AI Discussions](https://www.linkedin.com/groups/13983251) LinkedIn Group
 #### Join [KSUG.AI Telegram Chat](https://t.me/+QsBjgoId34EzN2I1)
-#### Join [KSUG.AI Meetup](meetup.com/pro/yongkang) User Group
+#### Join [KSUG.AI Meetup](https://meetup.com/pro/yongkang) User Group
 
 
