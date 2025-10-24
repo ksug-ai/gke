@@ -2,9 +2,9 @@ starttime=$(date +%s)
 . ./setenv.sh
 echo '-------Deleting the GKE Cluster (typically in few mins)'
 TEMP_PREFIX=$(echo $(whoami) | sed -e 's/\_//g' | sed -e 's/\.//g' | awk '{print tolower($0)}')
-FIRST3=$(echo -n $TEMP_PREFIX | head -c3)
-LAST3=$(echo -n $TEMP_PREFIX | tail -c3)
-MY_PREFIX=$(echo $FIRST3$LAST3)
+FIRST3=$(printf "%.3s" "$TEMP_PREFIX")
+LAST3=$(printf "%.3s" "$(echo -n "$TEMP_PREFIX" | tail -c3)")
+MY_PREFIX="$FIRST3$LAST3"
 
 gkeclustername=$(gcloud container clusters list --format="value(name)" --filter="$MY_PREFIX-$MY_CLUSTER")
 gcloud container clusters delete $gkeclustername --zone $MY_ZONE --quiet
