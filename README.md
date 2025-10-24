@@ -83,11 +83,16 @@ Uninstall Falco via Automation
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YwfPqR5phLM/0.jpg)](https://www.youtube.com/watch?v=YwfPqR5phLM)
 #### Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
 
-# Contributors
-#### Follow [Yongkang He](https://linktr.ee/ksug.ai) on LinkedIn
-#### Join [KSUG.AI Discord](https://discord.com/invite/Rp9WzYyKua)
-#### Join [KSUG.AI Discussions](https://www.linkedin.com/groups/13983251) LinkedIn Group
-#### Join [KSUG.AI Telegram Chat](https://t.me/+QsBjgoId34EzN2I1)
-#### Join [KSUG.AI Meetup](https://meetup.com/pro/yongkang) User Group
+## Join the KSUG.AI Global Community  
+📍 **Meetups Around the World!**  
+📢 **Follow Us:** [https://linktr.ee/ksug.ai](https://linktr.ee/ksug.ai)  
+🌐 **Website:** [https://ksug.ai](https://ksug.ai/save)  
 
-
+### **Community Stats & Links**  
+- 🔗 **kubestrong LinkedIn:** [31,000+ followers](https://linkedin.com/company/kubestrong)  
+- 📍 **KSUG.AI Meetup:** [30,000+ members](https://www.meetup.com/pro/yongkang)  
+- 💬 **KSUG.AI Discussion:** [23,000+ members](https://www.linkedin.com/groups/13983251/)  
+- 🔥 **KSUG.AI LinkedIn:** [17,000+ followers](https://linkedin.com/company/95053109)
+- 📪 **KSUG.AI Newsletter:** [12,000+ subscribers](https://www.linkedin.com/newsletters/k8sug-newsletter-7284165390442622976/)
+- ☁️ **awstronaut LinkedIn:** [12,000+ followers](https://linkedin.com/company/awstronaut)  
+- 💻 **Join us on** [Discord](https://discord.com/invite/Rp9WzYyKua), [GitHub](https://github.com/ksug-ai), [WhatsApp](https://chat.whatsapp.com/DMqtkzb3LvM20kN1IMZOW9), [Telegram](https://t.me/+QsBjgoId34EzN2I1), and more!
