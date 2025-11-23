@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: llm-container
-        image: docker.io/heyongkang/vulnerable-llm-app:v4
+        image: docker.io/heyongkang/vulnerable-llm-app:v6
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

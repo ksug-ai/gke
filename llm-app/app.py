@@ -10,7 +10,9 @@ HTML_TEMPLATE = '''
     <title>LLM Chat Assistant</title>
     <style>
         body { font-family: Arial; max-width: 800px; margin: 50px auto; padding: 20px; }
-        h1 { color: #333; }
+        .header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .logo { height: 50px; }
+        h1 { color: #333; margin: 0; }
         #chat-box { border: 1px solid #ddd; padding: 20px; height: 400px; overflow-y: auto; background: #f9f9f9; margin-bottom: 20px; }
         .message { margin: 10px 0; padding: 10px; border-radius: 5px; }
         .user { background: #e3f2fd; text-align: right; }
@@ -18,10 +20,14 @@ HTML_TEMPLATE = '''
         input[type="text"] { width: 80%; padding: 10px; font-size: 16px; }
         button { padding: 10px 20px; font-size: 16px; background: #4CAF50; color: white; border: none; cursor: pointer; }
         button:hover { background: #45a049; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <h1>🤖 LLM Chat Assistant</h1>
+    <div class="header">
+        <a href="https://ksug.ai" target="_blank"><img src="https://ksug.ai/assets/Logo-C22ZmRMJ.jpg" alt="KSUG.AI" class="logo"></a>
+        <h1>🤖 LLM Chat Assistant by <a href="https://ksug.ai" target="_blank" style="color: #4CAF50; text-decoration: none;">KSUG.AI</a></h1>
+    </div>
     <div id="chat-box"></div>
     <input type="text" id="prompt" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendMessage()">
     <button onclick="sendMessage()">Send</button>
