@@ -4,15 +4,18 @@ echo '-------Creating a GKE Cluster only (typically in ~5 mins)'
 starttime=$(date +%s)
 . ./setenv.sh
 TEMP_PREFIX=$(whoami | sed -e 's/[_.]//g' | tr '[:upper:]' '[:lower:]')
-FIRST3=$(echo -n "$TEMP_PREFIX" | head -c3)
-LAST3=$(echo -n "$TEMP_PREFIX" | tail -c3)
-MY_PREFIX="$FIRST3$LAST3"
-GKE_K8S_VERSION=$(gcloud container get-server-config --region "${MY_REGION}" --format='table(channels.validVersions[])' --filter='channels.channel=RAPID' | grep -o "${K8S_VERSION}-gke\.[0-9]*" | sort -rV | head -n 1)
+FIRST2=$(printf "%.2s" "$TEMP_PREFIX")
+LAST2=$(printf "%s" "$TEMP_PREFIX" | tail -c3 | head -c2)
+MY_PREFIX="$FIRST2$LAST2"
+GKE_K8S_VERSION=$(gcloud container get-server-config --region "${MY_REGION}" --format='table(channels.validVersions[])' --filter='channels.channel=RAPID' 2>/dev/null | grep -o "${K8S_VERSION}-gke\.[0-9]*" | sort -rV | head -n 1 | tr -d '\n\r')
 
 if [ -z "$GKE_K8S_VERSION" ]; then
     echo "Error: No GKE version found for $K8S_VERSION in RAPID channel." >&2
     exit 1
 fi
+
+echo "Using GKE version: $GKE_K8S_VERSION"
+echo "Cluster name: $MY_PREFIX-$MY_CLUSTER-$(date +%s)"
 
 gcloud container clusters create "$MY_PREFIX-$MY_CLUSTER-$(date +%s)" \
   --zone "$MY_ZONE" \

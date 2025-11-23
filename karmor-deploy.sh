@@ -11,12 +11,13 @@ fi
 helm upgrade --install kubearmor-operator kubearmor/kubearmor-operator -n yong-kubearmor --create-namespace 
 kubectl apply -f ./kubearmor-sample-config.yaml
 
-# Install KubeArmor CLI
-curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b ~/gke-casa
-
-# Deploy a test nginx app
+echo "-------Deploying a test nginx app for the original demo"
 kubectl create namespace yong-nginx
 kubectl create deployment nginx4yong1 --image=nginx -n yong-nginx
+
+# Deploy a vulnerable LLM test app for the new AI security demo
+echo "-------Deploying a vulnerable LLM application for demonstration"
+kubectl apply -f ./llm-app-deploy.yaml
 
 endtime=$(date +%s)
 duration=$(( $endtime - $starttime ))

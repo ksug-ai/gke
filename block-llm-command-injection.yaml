@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: block-command-injection
+  namespace: yong-llm-app
+spec:
+  selector:
+    matchLabels:
+      app: llm-app
+  process:
+    matchDirectories:
+    - dir: /bin/
+      recursive: false
+    - dir: /usr/bin/
+      recursive: false
+  action: Block

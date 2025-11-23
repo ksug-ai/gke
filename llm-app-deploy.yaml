@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: yong-llm-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-app
+  namespace: yong-llm-app
+  labels:
+    app: llm-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-app
+  template:
+    metadata:
+      labels:
+        app: llm-app
+    spec:
+      containers:
+      - name: llm-container
+        image: docker.io/heyongkang/vulnerable-llm-app:v4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-app-service
+  namespace: yong-llm-app
+spec:
+  selector:
+    app: llm-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
