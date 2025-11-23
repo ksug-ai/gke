@@ -5,7 +5,7 @@ starttime=$(date +%s)
 . ./setenv.sh
 TEMP_PREFIX=$(whoami | sed -e 's/[_.]//g' | tr '[:upper:]' '[:lower:]')
 FIRST2=$(printf "%.2s" "$TEMP_PREFIX")
-LAST2=$(printf "%s" "$TEMP_PREFIX" | tail -c3 | head -c2)
+LAST2=$(printf "%s" "$TEMP_PREFIX" | tail -c2 | head -c2)
 MY_PREFIX="$FIRST2$LAST2"
 GKE_K8S_VERSION=$(gcloud container get-server-config --region "${MY_REGION}" --format='table(channels.validVersions[])' --filter='channels.channel=RAPID' 2>/dev/null | grep -o "${K8S_VERSION}-gke\.[0-9]*" | sort -rV | head -n 1 | tr -d '\n\r')
 
