@@ -26,7 +26,7 @@ HTML_TEMPLATE = '''
 <body>
     <div class="header">
         <a href="https://ksug.ai" target="_blank"><img src="https://ksug.ai/assets/Logo-C22ZmRMJ.jpg" alt="KSUG.AI" class="logo"></a>
-        <h1>🤖 LLM Chat Assistant by <a href="https://ksug.ai" target="_blank" style="color: #4CAF50; text-decoration: none;">KSUG.AI</a></h1>
+        <h1>🤖 LLM Chat Assistant by <a href="https://ksug.ai" target="_blank" style="color: #FF6600; text-decoration: none; font-weight: bold;">KSUG.AI</a></h1>
     </div>
     <div id="chat-box"></div>
     <input type="text" id="prompt" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendMessage()">
