@@ -43,11 +43,12 @@ Now that the cluster is ready, you will deploy a sample LLM application that is 
     kubectl get pods -n yong-llm-app
     ```
 3.  **Access the Application**:
-    Get the External IP of the service.
+    Run the following command to generate the clickable URL:
     ```bash
-    kubectl get svc llm-app-service -n yong-llm-app
+    export EXTERNAL_IP=$(kubectl get svc llm-app-service -n yong-llm-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    echo "http://$EXTERNAL_IP:5000"
     ```
-    Open a browser and navigate to `http://<EXTERNAL-IP>:5000`.
+    Click the link output by the command to open the application.
 
 ## Lab 3: Attack & Defense with KubeArmor
 
