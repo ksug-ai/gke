@@ -127,7 +127,7 @@ Uninstall Falco via Automation
 ## Join the KSUG.AI Global Community  
 📍 **Meetups Around the World!**  
 📢 **Follow Us:** [https://linktr.ee/ksug.ai](https://linktr.ee/ksug.ai)  
-🌐 **Website:** [https://ksug.ai](https://ksug.ai/save)  
+🌐 **Website:** [https://ksug.ai](https://ksug.ai/save/?ref=github)  
 
 ### **Community Stats & Links**  
 - 🔗 **kubestrong LinkedIn:** [32,000+ followers](https://linkedin.com/company/kubestrong)  
