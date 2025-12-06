@@ -43,14 +43,29 @@ Now that the cluster is ready, you will deploy a sample LLM application that is 
     kubectl get pods -n yong-llm-app
     ```
 3.  **Access the Application**:
-    Run the following command to generate the clickable URL:
+    Run the following command to wait for the External IP and generate the clickable URL:
     ```bash
+    echo "Waiting for External IP..."
+    while [ -z $(kubectl get svc llm-app-service -n yong-llm-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}') ]; do
+      sleep 5
+    done
     export EXTERNAL_IP=$(kubectl get svc llm-app-service -n yong-llm-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-    echo "http://$EXTERNAL_IP:5000"
+    echo "App URL: http://$EXTERNAL_IP"
     ```
     Click the link output by the command to open the application.
 
-## Lab 3: Attack & Defense with KubeArmor
+## Lab 3: Install KubeArmor
+
+Before we can use KubeArmor to defend against attacks, we need to install it on the cluster.
+
+1.  **Install KubeArmor**:
+    Run the deployment script:
+    ```bash
+    ./karmor-deploy.sh
+    ```
+    Wait for the installation to complete.
+
+## Lab 4: Attack & Defense with KubeArmor
 
 In this lab, you will demonstrate a prompt injection attack and then block it using KubeArmor.
 
@@ -91,7 +106,7 @@ chmod +x kubearmor-llm-guide.sh
 ./kubearmor-llm-guide.sh
 ```
 
-## Lab 4: Cleanup
+## Lab 5: Cleanup
 
 Once you have completed the workshop, remember to destroy the resources to avoid unwanted charges.
 
