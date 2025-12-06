@@ -99,9 +99,11 @@ In this lab, you will demonstrate a prompt injection attack and then block it us
 
 ### Automated Demo (Optional)
 
-You can also run the interactive guide script which automates the steps above:
+You can also run the interactive guide script which automates the steps above.
+**Note:** If you have already applied the policy in the previous steps, you must delete it first for the demo script to work correctly.
 
 ```bash
+kubectl delete ksp block-command-injection -n yong-llm-app
 chmod +x kubearmor-llm-guide.sh
 ./kubearmor-llm-guide.sh
 ```
